@@ -1,26 +1,129 @@
-ESP32 RPM Counter using E3Z-L61 Photoelectric Sensor
+Here's a **simple student version** that is suitable for your GitHub README.
 
+---
 
+# ESP32 RPM Counter using E3Z-L61 Photoelectric Sensor
 
-📌 Project Overview
-This project utilizes an ESP32 microcontroller and a generic E3Z-L61 narrow-beam photoelectric sensor to measure the RPM (Revolutions Per Minute) of a motor wheel. The measurement is achieved by reading the frequency at which a 3 cm reflective sticker passes through the sensor's infrared beam.
+## Project Overview
 
-⚙️ Sensor Specifications (E3Z-L61 Clone)
-We are using a locally sourced (Pettah) generic clone of the Omron E3Z-L61.
+This project is developed to measure the **RPM (Revolutions Per Minute)** of a rotating wheel using an **ESP32** and an **OMRON E3Z-L61 Photoelectric Sensor**.
 
-Type: Narrow-beam photoelectric diffuse-reflective sensor.
+A small reflective sticker is attached to the rotating wheel. Each time the sticker passes in front of the sensor, the sensor generates a pulse. The ESP32 counts these pulses and calculates the RPM.
 
-Operating Voltage: 12-24V DC.
+---
 
-Output Type: NPN Open Collector (sinks current to ground when triggered).
+# Hardware Required
 
-Operation Mode: Selectable Light-ON / Dark-ON (via physical switch).
+* ESP32 Development Board
+* OMRON E3Z-L61 Photoelectric Sensor
+* 12V DC Power Supply (for the sensor)
+* Reflective Sticker
+* 10kΩ Resistor
+* Jumper Wires
+* Breadboard (for testing)
 
-Response Time: Typically 1 millisecond (0.001 s).
+---
 
-Beam Spot Diameter: Extremely narrow (ideal for small targets/stickers).
+# Sensor Specifications
 
-🔌 Wiring Diagram (ESP32 Integration)
-Because the sensor requires 12V-24V DC but the ESP32 operates on strict 3.3V logic, the sensor cannot be directly powered by the ESP32. Furthermore, because it is an NPN Open Collector, it requires a pull-up resistor to provide a steady HIGH signal to the ESP32 when the sensor is idle.
+**Sensor Model:** OMRON E3Z-L61
 
-⚠️ WARNING: Never connect a 12V source directly to an ESP32 GPIO pin. Always verify the sensor output voltage with a multimeter before connecting.
+* Sensor Type: Photoelectric Sensor
+* Detection Method: Reflective
+* Supply Voltage: 12V – 24V DC
+* Output Type: NPN Open Collector
+* Response Time: 1 ms
+* Protection Rating: IP67
+* Cable Wires:
+
+  * Brown → VCC (12–24V)
+  * Blue → GND
+  * Black → Output Signal
+
+---
+
+# Working Principle
+
+1. A reflective sticker is attached to the rotating wheel.
+2. The sensor detects the sticker whenever it passes in front of the sensor.
+3. One pulse is generated for each rotation.
+4. The ESP32 counts the pulses.
+5. The RPM is calculated and displayed or sent to the cloud.
+
+---
+
+# Sensor Limitations
+
+* Requires an external **12V DC** power supply.
+* Cannot be powered directly from the ESP32.
+* The sensor must be properly aligned with the reflective sticker.
+* A loose sensor mounting can affect RPM accuracy.
+* Dust or dirt on the sensor or sticker may reduce detection performance.
+* The NPN output requires a **3.3V pull-up resistor (10kΩ)** when connecting to the ESP32.
+
+---
+
+# Wiring Connection
+
+| Sensor Wire | Connect To                     |
+| ----------- | ------------------------------ |
+| Brown       | +12V Power Supply              |
+| Blue        | GND (Common Ground with ESP32) |
+| Black       | ESP32 GPIO 4                   |
+
+**Pull-up Resistor**
+
+* 10kΩ resistor between **GPIO 4** and **3.3V**.
+
+---
+
+# RPM Calculation
+
+The ESP32 measures the number of pulses from the sensor.
+
+**Formula**
+
+```
+RPM = (Pulse Count × 60) / Time (seconds)
+```
+
+Example:
+
+```
+120 pulses in 1 second
+
+RPM = 120 × 60
+
+RPM = 7200
+```
+
+---
+
+# Applications
+
+* Industrial Machine Monitoring
+* Conveyor Systems
+* Motor Speed Measurement
+* Wheel RPM Measurement
+* IoT Monitoring System
+
+---
+
+# Future Improvements
+
+* Send RPM data to the Cloud
+* Web Dashboard
+* Data Logging
+* High RPM Alarm
+* Real-time Monitoring
+
+---
+
+# References
+
+* OMRON E3Z-L61 Datasheet
+* ESP32 Documentation
+
+---
+
+This version is clean, easy to read, and appropriate for a **student GitHub repository** while still covering the key specifications, limitations, wiring, and project overview.
