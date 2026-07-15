@@ -77,7 +77,7 @@ A small reflective sticker is attached to the rotating wheel. Each time the stic
 
 ## Circuit Diagram
 
-![Circuit Diagram2](Circuit_Diagram.jpeg)
+![Circuit Diagram](Circuit_Diagram.jpeg)
 
 ---
 
