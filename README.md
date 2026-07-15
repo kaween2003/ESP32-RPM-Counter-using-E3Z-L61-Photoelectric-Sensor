@@ -1,4 +1,7 @@
 ESP32 RPM Counter using E3Z-L61 Photoelectric Sensor
+
+
+
 📌 Project Overview
 This project utilizes an ESP32 microcontroller and a generic E3Z-L61 narrow-beam photoelectric sensor to measure the RPM (Revolutions Per Minute) of a motor wheel. The measurement is achieved by reading the frequency at which a 3 cm reflective sticker passes through the sensor's infrared beam.
 
