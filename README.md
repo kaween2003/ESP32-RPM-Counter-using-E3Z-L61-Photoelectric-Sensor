@@ -1,5 +1,3 @@
-Here's a **simple student version** that is suitable for your GitHub README.
-
 ---
 
 # ESP32 RPM Counter using E3Z-L61 Photoelectric Sensor
@@ -126,4 +124,3 @@ RPM = 7200
 
 ---
 
-This version is clean, easy to read, and appropriate for a **student GitHub repository** while still covering the key specifications, limitations, wiring, and project overview.
