@@ -74,9 +74,11 @@ A small reflective sticker is attached to the rotating wheel. Each time the stic
 * 10kΩ resistor between **GPIO 4** and **3.3V**.
 
 ---
+
 ## Circuit Diagram
 
 ![Circuit Diagram](Circuit_Diagram.jpeg)
+
 ---
 
 # RPM Calculation
